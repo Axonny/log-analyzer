@@ -1,0 +1,17 @@
+[Unit]
+  Description=Generating fake logs
+
+[Service]
+  ExecStart=/usr/bin/python3 -u /usr/local/bin/fake_logs_generator.py
+  ExecReload=/bin/kill -s HUP $MAINPID
+  ExecStop=/bin/kill $MAINPID
+  Type=idle
+  KillMode=process
+
+  SyslogIdentifier=fake-logs
+  SyslogFacility=daemon
+
+  Restart=on-failure
+
+[Install]
+  WantedBy=multiuser.target
