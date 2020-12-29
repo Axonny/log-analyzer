@@ -13,7 +13,9 @@ resources = {
 "POST": ["/api/user/login", "/api/user/logout"]
 }
 
-users = ["WeslyG", "Axonny", "Kamel", "Viayto", "Stozowh", "Baria", "Lety", "Yosyari", "Deryna", "Yuline"]
+users = ["WeslyG", "Axonny", "Kamel", "Viayto", "Stozowh",
+"Baria", "Lety", "Yosyari", "Deryna", "Yuline",
+"Lequrin", "Mimana", "Guibe", "Tanelal", "Failyn"]
 
 def get_date_time_now() -> str:
     return datetime.today().strftime("%Y.%m.%d %H:%M:%S")
@@ -33,6 +35,6 @@ if __name__ == "__main__":
         resource_path = get_resource_path()
         log = f"{date_time} {severity} {http_status} {request_user} {request_time} {resource_path}"
         print(log)
-        with open("logs.log", "a", encoding="utf-8") as f:
+        with open("/var/log/fake_logs.log", "a", encoding="utf-8") as f:
             f.write(f"{log}\n")
         time.sleep(10)
