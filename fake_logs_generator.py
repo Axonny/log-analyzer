@@ -34,7 +34,6 @@ if __name__ == "__main__":
         request_time = random.randint(1, 100)
         resource_path = get_resource_path()
         log = f"{date_time} {severity} {http_status} {request_user} {request_time} {resource_path}"
-        print(log)
         with open("/var/log/fake_logs.log", "a", encoding="utf-8") as f:
             f.write(f"{log}\n")
         time.sleep(10)
